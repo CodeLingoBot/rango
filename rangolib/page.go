@@ -61,7 +61,7 @@ func NewPage() *Page {
 	return &Page{}
 }
 
-// ReadPage reads a page from disk
+// Read reads a page from disk
 func (p Page) Read(fp string) (*PageFile, error) {
 	// open the file for reading
 	file, err := os.Open(fp)
@@ -96,7 +96,7 @@ func (p Page) Read(fp string) (*PageFile, error) {
 	}, nil
 }
 
-// CreatePage creates a new file and saves page content to it
+// Create creates a new file and saves page content to it
 func (p Page) Create(dirname string, fm Frontmatter, content []byte) (*PageFile, error) {
 
 	// get title from metadata
@@ -124,7 +124,7 @@ func (p Page) Create(dirname string, fm Frontmatter, content []byte) (*PageFile,
 	return page, nil
 }
 
-// UpdatePage changes the content of an existing page
+// Update changes the content of an existing page
 func (p Page) Update(fp string, fm Frontmatter, content []byte) (*PageFile, error) {
 
 	// get title from metadata
